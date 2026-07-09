@@ -60,9 +60,11 @@ async function initAuth() {
     isDemoMode = false;
     try {
       if (typeof window.Clerk === 'undefined') {
-        await loadClerkScript(key);
+        await loadClerkSDK(key);
       }
-      await window.Clerk.load();
+      await window.Clerk.load({
+        ui: { ClerkUI: window.__internal_ClerkUICtor }
+      });
       clerkInstance = window.Clerk;
       console.log("Clerk authentication successfully loaded.");
     } catch (err) {
@@ -75,17 +77,39 @@ async function initAuth() {
   }
 }
 
-function loadClerkScript(publishableKey) {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    // Direct link to the browser SDK script
-    script.src = `https://cool-marlin-45.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js`;
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    script.setAttribute('data-clerk-publishable-key', publishableKey);
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
+function loadClerkSDK(publishableKey) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const b64Part = publishableKey.split('_')[2];
+      const clerkDomain = atob(b64Part).slice(0, -1);
+      
+      // 1. Load the Clerk UI bundle
+      await new Promise((res, rej) => {
+        const scriptUI = document.createElement('script');
+        scriptUI.src = `https://${clerkDomain}/npm/@clerk/ui@1/dist/ui.browser.js`;
+        scriptUI.async = true;
+        scriptUI.crossOrigin = 'anonymous';
+        scriptUI.onload = res;
+        scriptUI.onerror = () => rej(new Error('Failed to load @clerk/ui bundle'));
+        document.head.appendChild(scriptUI);
+      });
+
+      // 2. Load the Clerk JS SDK
+      await new Promise((res, rej) => {
+        const scriptJS = document.createElement('script');
+        scriptJS.src = `https://${clerkDomain}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`;
+        scriptJS.async = true;
+        scriptJS.crossOrigin = 'anonymous';
+        scriptJS.setAttribute('data-clerk-publishable-key', publishableKey);
+        scriptJS.onload = res;
+        scriptJS.onerror = () => rej(new Error('Failed to load @clerk/clerk-js bundle'));
+        document.head.appendChild(scriptJS);
+      });
+
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
   });
 }
 
