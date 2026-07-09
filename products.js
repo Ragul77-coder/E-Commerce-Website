@@ -417,6 +417,82 @@ const products = [
       "Height": "25 cm",
       "Origin": "Hand-knit in Peru"
     }
+  },
+  {
+    id: "home-bedding",
+    name: "Linen Bedding Set",
+    brand: "Atelier Nord",
+    price: 185,
+    rating: 4.8,
+    reviewCount: 39,
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "A premium duvet cover and pillowcase set woven from high-quality European flax linen. Soft, breathable, and pre-washed for vintage comfort.",
+    category: "Home",
+    details: {
+      "Material": "100% European Flax Linen",
+      "Includes": "1 Duvet Cover, 2 Pillowcases",
+      "Sizes": "Queen / King"
+    }
+  },
+  {
+    id: "beauty-mask",
+    name: "Clay Face Mask",
+    brand: "Soma Hydration",
+    price: 29,
+    rating: 4.7,
+    reviewCount: 45,
+    image: "https://images.unsplash.com/photo-1567894192231-d22d9c134940?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1567894192231-d22d9c134940?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "A clarifying French green clay face mask that draws out skin impurities, controls sebum, and tightens pores. Blended with calming chamomile.",
+    category: "Beauty",
+    details: {
+      "Volume": "60ml / 2.0 fl. oz",
+      "Key Ingredients": "French Green Clay, Kaolin Clay, Chamomile extract",
+      "Usage": "Apply twice weekly for 10 minutes"
+    }
+  },
+  {
+    id: "women-cardigan",
+    name: "Wool Knit Cardigan",
+    brand: "Loom & Hide",
+    price: 120,
+    rating: 4.9,
+    reviewCount: 57,
+    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "An oversized, cozy knit cardigan made from a premium alpaca-wool blend. Features tortoise-shell buttons and relaxed drop shoulders.",
+    category: "Women",
+    details: {
+      "Material": "50% Alpaca Wool, 30% Merino, 20% Nylon",
+      "Color": "Ivory Cream",
+      "Care": "Dry clean or hand wash cold"
+    }
+  },
+  {
+    id: "men-boots",
+    name: "Suede Chelsea Boots",
+    brand: "Outline Studio",
+    price: 150,
+    rating: 4.8,
+    reviewCount: 66,
+    image: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "Classic Chelsea silhouette boots made of fine Italian suede with elasticated side goring. Features a durable crepe rubber sole for all-day comfort.",
+    category: "Men",
+    details: {
+      "Material": "100% Italian Suede Upper, Crepe Rubber Sole",
+      "Detail": "Pull tab at heel",
+      "Origin": "Made in Portugal"
+    }
   }
 ];
 

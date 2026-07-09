@@ -1,5 +1,26 @@
 // Cart Management State
-let cart = JSON.parse(localStorage.getItem('shop_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('shop_cart'));
+if (!cart) {
+  cart = [
+    {
+      id: "home-chair",
+      name: "Bouclé Lounge Chair",
+      brand: "Atelier Nord",
+      price: 890,
+      image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&h=600&q=80",
+      quantity: 1
+    },
+    {
+      id: "beauty-mist",
+      name: "Rose Botanica Facial Mist",
+      brand: "Soma Hydration",
+      price: 34,
+      image: "https://images.unsplash.com/photo-1608248597481-496100c80836?auto=format&fit=crop&w=600&h=600&q=80",
+      quantity: 2
+    }
+  ];
+  localStorage.setItem('shop_cart', JSON.stringify(cart));
+}
 
 // Mock Auth State (for Demo Mode when Clerk is not configured)
 let mockUser = JSON.parse(localStorage.getItem('shop_mock_user')) || null;
@@ -378,6 +399,8 @@ function renderPageContent() {
     renderCheckoutPage();
   } else if (document.getElementById('success-summary-container')) {
     renderSuccessPage();
+  } else if (document.getElementById('clerk-signin-container')) {
+    renderLoginPage();
   }
 }
 
@@ -1102,4 +1125,40 @@ function renderSuccessPage() {
       </a>
     </div>
   `;
+}
+
+// ==========================================
+// Standalone Login Page Logic (login.html)
+// ==========================================
+function renderLoginPage() {
+  // If already logged in, send home
+  if (isAuthenticated()) {
+    window.location.href = 'index.html';
+    return;
+  }
+
+  const signinWrapper = document.getElementById('clerk-signin-container');
+  if (!signinWrapper) return;
+
+  if (!isDemoMode && clerkInstance) {
+    // Mount Clerk Standalone SignIn UI
+    clerkInstance.mountSignIn(signinWrapper, {
+      afterSignInUrl: 'index.html',
+      afterSignUpUrl: 'index.html'
+    });
+  } else {
+    // Render Custom Google Demo Button
+    signinWrapper.innerHTML = `
+      <div style="display: flex; flex-direction: column; width: 100%; gap: 16px; align-items: center;">
+        <button class="clerk-login-btn" id="demo-page-signin-btn" style="width: 100%; justify-content: center; padding: var(--spacing-16) var(--spacing-32);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.51 0-6.357-2.853-6.357-6.363s2.848-6.363 6.357-6.363c1.644 0 3.125.62 4.267 1.636l3.228-3.228C19.56 2.502 16.15 1 12.24 1 5.48 1 0 6.48 0 13.24s5.48 12.24 12.24 12.24c6.91 0 12.18-4.85 12.18-12.24 0-.828-.08-1.428-.21-1.955H12.24z"/>
+          </svg>
+          Continue with Google
+        </button>
+      </div>
+    `;
+
+    document.getElementById('demo-page-signin-btn')?.addEventListener('click', triggerLogin);
+  }
 }
