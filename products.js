@@ -303,6 +303,120 @@ const products = [
       "Dimensions": "80cm x 100cm",
       "Origin": "Woven in Australia"
     }
+  },
+  {
+    id: "women-beanie",
+    name: "Cashmere Knit Beanie",
+    brand: "Loom & Hide",
+    price: 45,
+    rating: 4.7,
+    reviewCount: 38,
+    image: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "An incredibly soft, double-layered beanie knitted from pure organic cashmere. Keeps you warm and adds a refined touch to any cold-weather outfit.",
+    category: "Women",
+    details: {
+      "Material": "100% Organic Cashmere",
+      "Style": "Ribbed Knit, Snug Fit",
+      "Care": "Hand wash cold"
+    }
+  },
+  {
+    id: "women-earrings",
+    name: "Gold Arch Earrings",
+    brand: "Maison Slip",
+    price: 85,
+    rating: 4.8,
+    reviewCount: 24,
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "Elegant, lightweight statement earrings handcrafted in 14k gold-plated brass. Features an organic arch drop silhouette that moves beautifully.",
+    category: "Women",
+    details: {
+      "Material": "14k Gold-Plated Brass",
+      "Length": "4.5 cm drop",
+      "Origin": "Handmade in France"
+    }
+  },
+  {
+    id: "men-shirt",
+    name: "Linen Short Sleeve Shirt",
+    brand: "Outline Studio",
+    price: 75,
+    rating: 4.6,
+    reviewCount: 51,
+    image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "A breezy, casual short sleeve shirt tailored from premium flax linen. Features a relaxed collar and flat hemline, perfect for warm weekend strolls.",
+    category: "Men",
+    details: {
+      "Material": "100% French Flax Linen",
+      "Color": "Terracotta",
+      "Fit": "Relaxed Fit"
+    }
+  },
+  {
+    id: "beauty-wash",
+    name: "Botanical Body Wash",
+    brand: "Soma Hydration",
+    price: 36,
+    rating: 4.9,
+    reviewCount: 68,
+    image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "A nourishing liquid soap scented with wild eucalyptus and cedarwood. Gently cleanses the skin with a rich lather without stripping natural moisture.",
+    category: "Beauty",
+    details: {
+      "Volume": "250ml / 8.4 fl. oz",
+      "Key Ingredients": "Aloe Vera, Sea Buckthorn, Cedarwood essential oil",
+      "Packaging": "Recycled glass bottle with pump"
+    }
+  },
+  {
+    id: "home-towels",
+    name: "Organic Cotton Bath Towels",
+    brand: "Atelier Nord",
+    price: 58,
+    rating: 4.8,
+    reviewCount: 42,
+    image: "https://images.unsplash.com/photo-1616627547584-bf28cee262db?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1616627547584-bf28cee262db?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "A set of two ultra-plush, highly absorbent bath towels woven from organic Turkish cotton. Features a subtle waffle weave hem detail.",
+    category: "Home",
+    details: {
+      "Includes": "2 Bath Towels",
+      "Material": "100% GOTS Certified Organic Cotton (600 GSM)",
+      "Dimensions": "70cm x 140cm"
+    }
+  },
+  {
+    id: "baby-bunny",
+    name: "Knitted Bunny Toy",
+    brand: "Petit Ground",
+    price: 26,
+    rating: 4.7,
+    reviewCount: 31,
+    image: "https://images.unsplash.com/photo-1558196140-ab7f732a3e69?auto=format&fit=crop&w=600&h=600&q=80",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1558196140-ab7f732a3e69?auto=format&fit=crop&w=150&h=150&q=80"
+    ],
+    description: "A lovable soft bunny knitted from organic wool yarn and stuffed with hypoallergenic fill. Features floppy ears and hand-stitched detailing.",
+    category: "Baby & Toddler",
+    details: {
+      "Material": "100% Organic Wool Yarn, Polyfill stuffing",
+      "Height": "25 cm",
+      "Origin": "Hand-knit in Peru"
+    }
   }
 ];
 

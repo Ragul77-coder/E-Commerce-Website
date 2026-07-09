@@ -1576,3 +1576,96 @@ footer {
   font-size: 11px;
   font-weight: bold;
 }
+
+/* Responsive Bottom Nav for Mobile Screen Sizes */
+@media (max-width: 768px) {
+  .sidebar-nav-rail {
+    width: 100% !important;
+    height: 56px !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    flex-direction: row !important;
+    padding: 0 var(--spacing-16) !important;
+    border-right: none !important;
+    border-top: 1px solid var(--color-faint-border) !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .sidebar-logo {
+    display: none !important;
+  }
+  
+  .sidebar-menu {
+    flex-direction: row !important;
+    width: auto !important;
+    gap: var(--spacing-32) !important;
+    flex-grow: 0 !important;
+    align-items: center !important;
+  }
+  
+  .sidebar-item {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .sidebar-profile {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .main-wrapper {
+    margin-left: 0 !important;
+    padding-bottom: 56px !important;
+  }
+  
+  .content-container {
+    padding: var(--spacing-32) var(--spacing-16) var(--spacing-48) var(--spacing-16) !important;
+  }
+
+  .hero-constellation {
+    height: 180px !important;
+  }
+
+  .brand-wordmark {
+    font-size: 56px !important;
+  }
+
+  .constellation-card {
+    width: 110px !important;
+    padding: 4px !important;
+    border-radius: 16px !important;
+  }
+  
+  .constellation-card .card-img-wrapper {
+    border-radius: 12px !important;
+  }
+
+  .constellation-card .brand-name {
+    font-size: var(--text-body-sm) !important;
+  }
+
+  .constellation-card.pos-left {
+    left: 2% !important;
+    transform: rotate(-4deg) translateY(-10px) !important;
+  }
+
+  .constellation-card.pos-center-left {
+    left: 25% !important;
+    transform: rotate(2deg) translateY(20px) !important;
+  }
+
+  .constellation-card.pos-center-right {
+    right: 25% !important;
+    transform: rotate(-2deg) translateY(-20px) !important;
+  }
+
+  .constellation-card.pos-right {
+    right: 2% !important;
+    transform: rotate(4deg) translateY(10px) !important;
+  }
+}
+

@@ -269,21 +269,36 @@ function setupSharedUI() {
   // 1. Sidebar profile photo and auth triggers
   const profileContainer = document.querySelector('.sidebar-profile');
   if (profileContainer) {
-    const user = getUserInfo();
-    if (user) {
-      profileContainer.innerHTML = `<img src="${user.imageUrl}" alt="${user.fullName}" title="Logged in as ${user.fullName} (Click to Logout)">`;
-      profileContainer.addEventListener('click', () => {
-        if (confirm(`Do you want to log out of ${user.fullName}?`)) {
-          triggerLogout();
-        }
-      });
+    if (!isDemoMode && clerkInstance) {
+      if (clerkInstance.user) {
+        // Mount Clerk UserButton which shows photo and handles logout
+        clerkInstance.mountUserButton(profileContainer);
+      } else {
+        profileContainer.innerHTML = `
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>`;
+        profileContainer.addEventListener('click', triggerLogin);
+      }
     } else {
-      profileContainer.innerHTML = `
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-          <circle cx="12" cy="7" r="4" />
-        </svg>`;
-      profileContainer.addEventListener('click', triggerLogin);
+      // Demo Mode rendering
+      const user = getUserInfo();
+      if (user) {
+        profileContainer.innerHTML = `<img src="${user.imageUrl}" alt="${user.fullName}" title="Logged in as ${user.fullName} (Click to Logout)">`;
+        profileContainer.addEventListener('click', () => {
+          if (confirm(`Do you want to log out of ${user.fullName}?`)) {
+            triggerLogout();
+          }
+        });
+      } else {
+        profileContainer.innerHTML = `
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>`;
+        profileContainer.addEventListener('click', triggerLogin);
+      }
     }
   }
 
